@@ -3,11 +3,27 @@ var letterObj = require("./letter.js");
 var wordObj = function(word){
     this.word = word;
     this.letters = [];
-    this.
+    this.lettersArrPop = function (){
+        for(i=0;i<this.word.length; i++){
+            this.letters.push(new letterObj(this.word[i]));
+        }
+    };
+    this.wordPrint = function (){
+        var wordString = "";
+        for (i = 0; i < this.letters.length; i++){
+            wordString += this.letters[i].letterDisplay();
+        }
+        return wordString;
+    };
+    this.letterGuess = function(userGuess){
+        for (i = 0; i < this.letters.length; i++){
+            this.letters[i].guessChecker(userGuess);
+        }
+    };
 
 }
 
-
+module.exports = wordObj;
 
 
 
