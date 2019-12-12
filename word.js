@@ -2,7 +2,7 @@ var letterObj = require("./letter.js");
 
 var wordObj = function(word){
     this.word = word;
-    this.correctGuess = false;
+    this.correctGuessIndex = false;
     this.letters = [];
     this.wordGuessed = false;
     this.guessedChecker = function(){
@@ -28,10 +28,10 @@ var wordObj = function(word){
     this.letterGuess = function(userGuess){
         for (i = 0; i < this.letters.length; i++){
             if(this.letters[i].guessChecker(userGuess)){
-                this.correctGuess = true;
+                this.correctGuessIndex = true;
             }
         }
-        return this.correctGuess;
+        return this.correctGuessIndex;
     };
 }
 module.exports = wordObj;
